@@ -17,6 +17,10 @@
 		15D0FB332A1281E90072DFCA /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB312A1281E90072DFCA /* SlideCollectionViewCell.swift */; };
 		15D0FB342A1281E90072DFCA /* SlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D0FB322A1281E90072DFCA /* SlideCollectionViewCell.xib */; };
 		15D0FB362A129A1B0072DFCA /* SlideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB352A129A1B0072DFCA /* SlideModel.swift */; };
+		15D0FB382A132EDF0072DFCA /* SliderSlides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB372A132EDF0072DFCA /* SliderSlides.swift */; };
+		15D0FB3A2A1331550072DFCA /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB392A1331550072DFCA /* RegViewController.swift */; };
+		15D0FB3C2A1331680072DFCA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB3B2A1331680072DFCA /* AuthViewController.swift */; };
+		15D0FB3E2A1334D60072DFCA /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB3D2A1334D60072DFCA /* AppViewController.swift */; };
 		B907927C47254A0903DD89AD /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E57E7CCB9C91975B900D5B1 /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +37,10 @@
 		15D0FB312A1281E90072DFCA /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D0FB322A1281E90072DFCA /* SlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideCollectionViewCell.xib; sourceTree = "<group>"; };
 		15D0FB352A129A1B0072DFCA /* SlideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideModel.swift; sourceTree = "<group>"; };
+		15D0FB372A132EDF0072DFCA /* SliderSlides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderSlides.swift; sourceTree = "<group>"; };
+		15D0FB392A1331550072DFCA /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
+		15D0FB3B2A1331680072DFCA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		15D0FB3D2A1334D60072DFCA /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		2034E79C930ACA4E079A1F97 /* Pods-Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.debug.xcconfig"; path = "Target Support Files/Pods-Messenger/Pods-Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 		7E57E7CCB9C91975B900D5B1 /* Pods_Messenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB5E976486F687C6F0CD58 /* Pods-Messenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.release.xcconfig"; path = "Target Support Files/Pods-Messenger/Pods-Messenger.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,10 +79,10 @@
 		15D0FB102A11669B0072DFCA /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				15D0FB272A127A720072DFCA /* Application */,
 				15D0FB2B2A127AEA0072DFCA /* Controller */,
 				15D0FB2A2A127AE00072DFCA /* View */,
 				15D0FB282A127AAC0072DFCA /* Model */,
-				15D0FB272A127A720072DFCA /* Application */,
 				15D0FB172A11669B0072DFCA /* Main.storyboard */,
 				15D0FB1A2A11669D0072DFCA /* Assets.xcassets */,
 				15D0FB1C2A11669D0072DFCA /* LaunchScreen.storyboard */,
@@ -97,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				15D0FB352A129A1B0072DFCA /* SlideModel.swift */,
+				15D0FB372A132EDF0072DFCA /* SliderSlides.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				15D0FB2D2A127C310072DFCA /* LoginViewController.swift */,
+				15D0FB392A1331550072DFCA /* RegViewController.swift */,
+				15D0FB3B2A1331680072DFCA /* AuthViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -129,6 +140,7 @@
 		15D0FB2F2A127C430072DFCA /* App */ = {
 			isa = PBXGroup;
 			children = (
+				15D0FB3D2A1334D60072DFCA /* AppViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -278,9 +290,13 @@
 			files = (
 				15D0FB332A1281E90072DFCA /* SlideCollectionViewCell.swift in Sources */,
 				15D0FB2E2A127C310072DFCA /* LoginViewController.swift in Sources */,
+				15D0FB382A132EDF0072DFCA /* SliderSlides.swift in Sources */,
 				15D0FB122A11669B0072DFCA /* AppDelegate.swift in Sources */,
+				15D0FB3E2A1334D60072DFCA /* AppViewController.swift in Sources */,
+				15D0FB3C2A1331680072DFCA /* AuthViewController.swift in Sources */,
 				15D0FB362A129A1B0072DFCA /* SlideModel.swift in Sources */,
 				15D0FB142A11669B0072DFCA /* SceneDelegate.swift in Sources */,
+				15D0FB3A2A1331550072DFCA /* RegViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

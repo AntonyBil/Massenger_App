@@ -10,23 +10,18 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var pageControl: UIPageControl!
+    
     var collectionView: UICollectionView!
- 
+    let sliderSlides = SliderSlides()
     var slides: [SlideModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configCollectionView()
-        pageControl.numberOfPages = slides.count
+        slides = sliderSlides.getSlides()
         
-        let slide1 = SlideModel(id: 1, text: "Text 1", image: UIImage(imageLiteralResourceName: "slide_1"))
-        let slide2 = SlideModel(id: 2, text: "Text 2", image: UIImage(imageLiteralResourceName: "slide_2"))
-        let slide3 = SlideModel(id: 3, text: "Text 3", image: UIImage(imageLiteralResourceName: "slide_3"))
-        
-        slides.append(slide1)
-        slides.append(slide2)
-        slides.append(slide3)
+       
     }
     
     //Create CollectionView programmatically
