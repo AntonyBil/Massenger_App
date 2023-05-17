@@ -15,7 +15,8 @@ class SlideCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var regBtn: UIButton!
     @IBOutlet weak var authBtn: UIButton!
-   
+    
+    var delegate: LoginViewControllerDelegate!
     
     func configure(slide: SlideModel) {
         slideImage.image = slide.image
@@ -25,14 +26,12 @@ class SlideCollectionViewCell: UICollectionViewCell {
             authBtn.isHidden = false
         }
     }
-    
-    @IBAction func regBtnClick(_ sender: UIButton) {
-        
+    //use delegete to switch between screens
+    @IBAction func regBtnClick(_ sender: Any) {
+        delegate.openRegVC()
     }
     
-    @IBAction func authBtnClick(_ sender: UIButton) {
-        
-        
+    @IBAction func authBtnClick(_ sender: Any) {
+        delegate.openAuthVC()
     }
-    
 }

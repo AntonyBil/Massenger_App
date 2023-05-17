@@ -9,15 +9,17 @@ import UIKit
 
 class AuthViewController: UIViewController {
     
-    
+    var delegate: LoginViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
     }
+
+    @IBAction func closeVC(_ sender: UIButton) {
+        delegate.closeVC()
+    }
     
-
-
 
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class RegViewController: UIViewController {
     
-    
+    var delegate: LoginViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,5 +17,7 @@ class RegViewController: UIViewController {
   
     }
     
-
+    @IBAction func closeVC(_ sender: UIButton) {
+        delegate.closeVC()
+    }
 }

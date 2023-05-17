@@ -45,7 +45,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="regBtnClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5gd-u1-A7k"/>
+                                    <action selector="regBtnClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JBy-2T-1xe"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMQ-6Q-6Hv">
@@ -64,7 +64,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="authBtnClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Zrl-bx-SXX"/>
+                                    <action selector="authBtnClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="J3e-ry-gDa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaN-a6-brf">

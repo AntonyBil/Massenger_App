@@ -7,12 +7,20 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate {
+    func openRegVC()
+    func openAuthVC()
+    func closeVC()
+}
+
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var pageControl: UIPageControl!
     
     var collectionView: UICollectionView!
     let sliderSlides = SliderSlides()
+    var authVC: AuthViewController!
+    var regVC: RegViewController!
+    
     var slides: [SlideModel] = []
     
     override func viewDidLoad() {
@@ -56,6 +64,7 @@ extension LoginViewController: UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideCollectionViewCell.identifire, for: indexPath) as! SlideCollectionViewCell
+        cell.delegate = self
         cell.configure(slide: slides[indexPath.row])
         return cell
     }
@@ -63,8 +72,37 @@ extension LoginViewController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.view.frame.size
     }
+}
+
+extension LoginViewController: LoginViewControllerDelegate {
+   
+    func openAuthVC() {
+        print(1)
+        if authVC == nil {
+            authVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AuthViewController") as! AuthViewController?
+        }
+        authVC.delegate = self
+        self.view.insertSubview(authVC.view, at: 1)
+    }
     
+    func openRegVC() {
+        if regVC == nil {
+            regVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RegViewController") as! RegViewController?
+        }
+        regVC.delegate = self
+        self.view.insertSubview(regVC.view, at: 1)
+    }
     
-    
+    func closeVC() {
+        if authVC != nil{
+            authVC.view.removeFromSuperview()
+            authVC = nil
+        }
+        
+        if regVC != nil {
+            regVC.view.removeFromSuperview()
+            regVC = nil
+        }
+    }
     
 }
