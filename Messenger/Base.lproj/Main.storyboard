@@ -57,11 +57,11 @@
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WzJ-BV-UeY">
                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="43"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3f-Nu-9Il">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="email" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3f-Nu-9Il">
                                                                 <rect key="frame" x="8" y="3" width="317" height="37"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go"/>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,11 +82,11 @@
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8D-Hh-C3g">
                                                         <rect key="frame" x="0.0" y="63" width="333" height="43"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6g-uw-3j8">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="password" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6g-uw-3j8">
                                                                 <rect key="frame" x="8" y="3" width="317" height="37"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,11 +107,11 @@
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VuA-te-uHP">
                                                         <rect key="frame" x="0.0" y="126" width="333" height="43"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repeat the Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDO-OH-yno">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="repassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repeat the Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDO-OH-yno">
                                                                 <rect key="frame" x="8" y="3" width="317" height="37"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -153,6 +153,9 @@
                                                         <integer key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="regBtnClick:" destination="pvf-zF-0wp" eventType="touchUpInside" id="3dO-BL-48n"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -189,6 +192,15 @@
                             <constraint firstItem="lII-AH-jDb" firstAttribute="leading" secondItem="9OB-xd-Evv" secondAttribute="leading" id="z5a-Dt-cZD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailView" destination="WzJ-BV-UeY" id="rCt-uu-qux"/>
+                        <outlet property="emeilField" destination="l3f-Nu-9Il" id="4Rd-Kj-GKw"/>
+                        <outlet property="mainView" destination="lII-AH-jDb" id="gDU-iF-OP8"/>
+                        <outlet property="passwordField" destination="d6g-uw-3j8" id="eNv-Zf-PFY"/>
+                        <outlet property="passwordView" destination="I8D-Hh-C3g" id="Uph-ku-A8z"/>
+                        <outlet property="rePasswordField" destination="nDO-OH-yno" id="WFV-mo-Rzh"/>
+                        <outlet property="rePasswordView" destination="VuA-te-uHP" id="c08-tb-6Cb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCw-Ah-DbC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
