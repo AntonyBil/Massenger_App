@@ -13,3 +13,5 @@ struct SlideModel {
     var image: UIImage
     
 }
+
+

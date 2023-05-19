@@ -11,6 +11,7 @@ class RegViewController: UIViewController {
     
     var delegate: LoginViewControllerDelegate!
     var checkField = CheckField.shared
+    var service = Service.shared
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var emeilField: UITextField!
@@ -45,7 +46,17 @@ class RegViewController: UIViewController {
         if checkField.validField(emailView, emeilField),
            checkField.validField(passwordView, passwordField) {
             if passwordField.text == rePasswordField.text {
-                print("correct field")
+                service.createNewUser(LoginField(email: emeilField.text!, password: passwordField.text!)) {[weak self] code in
+                    switch code.code {
+                    case 0:
+                        print("Registration error try again")
+                    case 1:
+                        print("Registration was successful")
+                        self?.service.confirmEmail()
+                    default:
+                        print("")
+                    }
+                }
             } else {
                 print("Not correct field")
             }
