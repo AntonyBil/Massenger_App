@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-import 
+import FirebaseFirestore
 
 class Service {
     static let shared = Service()
@@ -20,7 +20,11 @@ class Service {
         Auth.auth().createUser(withEmail: data.email, password: data.password) {[weak self] result, error in
             if error == nil {
                 if result != nil {
-               //     let userId = result?.user.uid
+                    let userId = result?.user.uid
+                    let email = data.email
+                    let data: [String: Any] = ["email": email]
+                    Firestore.firestore().collection("users").document(userId!).setData(data)
+                
                     completion(ResponceCode(code: 1))
                 }
             } else {
@@ -35,5 +39,25 @@ class Service {
                 print(error!.localizedDescription)
             }
         })
+    }
+    
+    func authInApp(_ data: LoginField, completion: @escaping(AuthResponse)->()) {
+        Auth.auth().signIn(withEmail: data.email, password: data.password) { result, error in
+            if error != nil {
+                completion(.error)
+            } else {
+                if let result = result {
+                    if result.user.isEmailVerified{
+                        completion(.success)
+                    } else {
+                        completion(.noVerify)
+                    }
+                }
+            }
+        }
+    }
+    
+    func getUserStatus() {
+        
     }
 }

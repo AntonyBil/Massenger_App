@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum AuthResponse{
+    case success, noVerify, error
+}
+
 struct ResponceCode {
     var code: Int
 }

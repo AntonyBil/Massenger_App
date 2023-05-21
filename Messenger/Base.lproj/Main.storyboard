@@ -306,6 +306,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot the password?"/>
+                                                <connections>
+                                                    <action selector="forgotPassword:" destination="QTV-wa-UUY" eventType="touchUpInside" id="JVP-8j-TzX"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="va6-3h-3yi">
                                                 <rect key="frame" x="0.0" y="224.33333333333331" width="333" height="34.333333333333314"/>
@@ -313,6 +316,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Don't have an account?">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="dontHaveAccountCleeck:" destination="QTV-wa-UUY" eventType="touchUpInside" id="jGo-ly-J3K"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yR-hH-3oe">
                                                 <rect key="frame" x="0.0" y="278.66666666666669" width="333" height="50"/>
@@ -329,6 +335,9 @@
                                                         <integer key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickAuthBtn:" destination="QTV-wa-UUY" eventType="touchUpInside" id="a1G-lr-9C1"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -365,6 +374,12 @@
                             <constraint firstAttribute="bottom" secondItem="UBm-Rp-PlG" secondAttribute="bottom" id="get-3f-vVV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="oyb-cf-oRJ" id="NPc-aS-a9C"/>
+                        <outlet property="emailView" destination="41t-Ma-coG" id="2O2-s5-kQE"/>
+                        <outlet property="passwordField" destination="dnE-7z-WlN" id="C5c-K8-zEo"/>
+                        <outlet property="passwordView" destination="WXe-pU-etY" id="Co2-3w-wAB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcl-l6-Fh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
