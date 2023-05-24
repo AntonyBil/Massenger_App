@@ -10,6 +10,7 @@ import UIKit
 protocol LoginViewControllerDelegate {
     func openRegVC()
     func openAuthVC()
+    func startApp()
     func closeVC()
 }
 
@@ -76,6 +77,7 @@ extension LoginViewController: UICollectionViewDelegate,
 
 extension LoginViewController: LoginViewControllerDelegate {
    
+   
     func openAuthVC() {
         print(1)
         if authVC == nil {
@@ -104,5 +106,11 @@ extension LoginViewController: LoginViewControllerDelegate {
             regVC = nil
         }
     }
+    
+    func startApp() {
+        let startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppViewController")
+        self.view.insertSubview(startVC.view, at: 2)
+    }
+    
     
 }

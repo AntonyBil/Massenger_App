@@ -17,7 +17,7 @@ class Service {
     
     
     func createNewUser(_ data: LoginField, completion: @escaping (ResponceCode)->()) {
-        Auth.auth().createUser(withEmail: data.email, password: data.password) {[weak self] result, error in
+        Auth.auth().createUser(withEmail: data.email, password: data.password) { result, error in
             if error == nil {
                 if result != nil {
                     let userId = result?.user.uid
@@ -50,6 +50,7 @@ class Service {
                     if result.user.isEmailVerified{
                         completion(.success)
                     } else {
+                        self.confirmEmail()
                         completion(.noVerify)
                     }
                 }

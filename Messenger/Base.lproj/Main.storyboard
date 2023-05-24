@@ -237,7 +237,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-4R-AFN">
+                                    <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="email" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-4R-AFN">
                                         <rect key="frame" x="30" y="261.66666666666663" width="333" height="328.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorization" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCX-hE-ZVD">
@@ -246,7 +246,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vIY-a2-pj2">
+                                            <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="password" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vIY-a2-pj2">
                                                 <rect key="frame" x="0.0" y="44" width="333" height="106"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41t-Ma-coG">
@@ -377,6 +377,7 @@
                     <connections>
                         <outlet property="emailField" destination="oyb-cf-oRJ" id="NPc-aS-a9C"/>
                         <outlet property="emailView" destination="41t-Ma-coG" id="2O2-s5-kQE"/>
+                        <outlet property="mainView" destination="UBm-Rp-PlG" id="6mN-jV-jaI"/>
                         <outlet property="passwordField" destination="dnE-7z-WlN" id="C5c-K8-zEo"/>
                         <outlet property="passwordView" destination="WXe-pU-etY" id="Co2-3w-wAB"/>
                     </connections>
