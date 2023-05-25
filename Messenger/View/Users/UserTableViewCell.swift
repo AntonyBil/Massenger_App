@@ -20,7 +20,7 @@ class UserTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func confifCell(_ name: String) {
+    func configCell(_ name: String) {
         userName.text = name
     }
     
