@@ -11,6 +11,9 @@
 		154E515C2A16AB0A00789DB0 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E515B2A16AB0A00789DB0 /* LoginModel.swift */; };
 		154E515E2A16AB7900789DB0 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E515D2A16AB7900789DB0 /* Service.swift */; };
 		154E51602A17226000789DB0 /* ResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E515F2A17226000789DB0 /* ResponseCode.swift */; };
+		154E51642A1FD5C400789DB0 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E51632A1FD5C400789DB0 /* UsersViewController.swift */; };
+		154E51682A1FD6B900789DB0 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E51662A1FD6B900789DB0 /* UserTableViewCell.swift */; };
+		154E51692A1FD6B900789DB0 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 154E51672A1FD6B900789DB0 /* UserTableViewCell.xib */; };
 		15D0FB122A11669B0072DFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB112A11669B0072DFCA /* AppDelegate.swift */; };
 		15D0FB142A11669B0072DFCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB132A11669B0072DFCA /* SceneDelegate.swift */; };
 		15D0FB192A11669B0072DFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D0FB172A11669B0072DFCA /* Main.storyboard */; };
@@ -33,6 +36,9 @@
 		154E515B2A16AB0A00789DB0 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		154E515D2A16AB7900789DB0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		154E515F2A17226000789DB0 /* ResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCode.swift; sourceTree = "<group>"; };
+		154E51632A1FD5C400789DB0 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		154E51662A1FD6B900789DB0 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		154E51672A1FD6B900789DB0 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		15D0FB0E2A11669B0072DFCA /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D0FB112A11669B0072DFCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D0FB132A11669B0072DFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +72,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		154E51612A1FD56600789DB0 /* Messenger */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Messenger;
+			sourceTree = "<group>";
+		};
+		154E51622A1FD57E00789DB0 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				154E51632A1FD5C400789DB0 /* UsersViewController.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		154E51652A1FD65F00789DB0 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				154E51662A1FD6B900789DB0 /* UserTableViewCell.swift */,
+				154E51672A1FD6B900789DB0 /* UserTableViewCell.xib */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
 		15D0FB052A11669B0072DFCA = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +155,7 @@
 		15D0FB2A2A127AE00072DFCA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				154E51652A1FD65F00789DB0 /* Users */,
 				15D0FB302A1281A10072DFCA /* Slide */,
 			);
 			path = View;
@@ -152,6 +183,8 @@
 		15D0FB2F2A127C430072DFCA /* App */ = {
 			isa = PBXGroup;
 			children = (
+				154E51622A1FD57E00789DB0 /* Users */,
+				154E51612A1FD56600789DB0 /* Messenger */,
 				15D0FB3D2A1334D60072DFCA /* AppViewController.swift */,
 			);
 			path = App;
@@ -247,6 +280,7 @@
 				15D0FB342A1281E90072DFCA /* SlideCollectionViewCell.xib in Resources */,
 				15D0FB262A1264FC0072DFCA /* GoogleService-Info.plist in Resources */,
 				15D0FB1B2A11669D0072DFCA /* Assets.xcassets in Resources */,
+				154E51692A1FD6B900789DB0 /* UserTableViewCell.xib in Resources */,
 				15D0FB192A11669B0072DFCA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +337,8 @@
 				15D0FB332A1281E90072DFCA /* SlideCollectionViewCell.swift in Sources */,
 				15D0FB2E2A127C310072DFCA /* LoginViewController.swift in Sources */,
 				154E51602A17226000789DB0 /* ResponseCode.swift in Sources */,
+				154E51642A1FD5C400789DB0 /* UsersViewController.swift in Sources */,
+				154E51682A1FD6B900789DB0 /* UserTableViewCell.swift in Sources */,
 				15D0FB382A132EDF0072DFCA /* SliderSlides.swift in Sources */,
 				154E515C2A16AB0A00789DB0 /* LoginModel.swift in Sources */,
 				154E515A2A169EE900789DB0 /* CheckField.swift in Sources */,
