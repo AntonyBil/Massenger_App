@@ -7,6 +7,8 @@
 
 import UIKit
 import MessageKit
+import InputBarAccessoryView
+
 
 struct Sender: SenderType {
     var senderId: String
@@ -14,14 +16,15 @@ struct Sender: SenderType {
 }
 
 struct Message: MessageType {
-    var sender: MessageKit.SenderType
+    var sender: SenderType
     var messageId: String
     var sentDate: Date
-    var kind: MessageKit.MessageKind
+    var kind: MessageKind
 }
 
 
 class ChatViewController: MessagesViewController {
+    var chatID: String?
     
     let selfSender = Sender(senderId: "1", displayName: "Antony")
     let otherSender = Sender(senderId: "2", displayName: "Jim")
@@ -38,17 +41,19 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
+        showMessageTimestampOnSwipeLeft = true
     }
     
 
 }
 
 extension ChatViewController: MessagesLayoutDelegate, MessagesDisplayDelegate, MessagesDataSource {
-    var currentSender: MessageKit.SenderType {
+    var currentSender: SenderType {
         return selfSender
     }
     
-    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageType {
         return messages[indexPath.section]
     }
     
@@ -57,4 +62,12 @@ extension ChatViewController: MessagesLayoutDelegate, MessagesDisplayDelegate, M
     }
     
     
+}
+
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        messages.append(Message(sender: selfSender, messageId: "4", sentDate: Date(), kind: .text(text)))
+        inputBar.inputTextView.text = nil
+        messagesCollectionView.reloadDataAndKeepOffset()
+    }
 }

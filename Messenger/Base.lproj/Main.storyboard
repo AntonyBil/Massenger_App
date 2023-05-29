@@ -264,14 +264,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mAP-nc-Iay">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mAP-nc-Iay">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hvd-eQ-lPq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mAP-nc-Iay" firstAttribute="leading" secondItem="Hvd-eQ-lPq" secondAttribute="leading" id="62c-TS-g1I"/>
+                            <constraint firstItem="mAP-nc-Iay" firstAttribute="trailing" secondItem="Hvd-eQ-lPq" secondAttribute="trailing" id="k5z-G4-MTG"/>
+                            <constraint firstItem="mAP-nc-Iay" firstAttribute="bottom" secondItem="Hvd-eQ-lPq" secondAttribute="bottom" id="xiE-o1-Wds"/>
+                            <constraint firstItem="mAP-nc-Iay" firstAttribute="top" secondItem="Hvd-eQ-lPq" secondAttribute="top" id="xsS-uY-Cm2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="Iex-vf-8GY"/>
                     <connections>
