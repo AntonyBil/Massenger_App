@@ -17,7 +17,7 @@ class UserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        settingString()
     }
 
     func configCell(_ name: String) {

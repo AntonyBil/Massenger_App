@@ -14,6 +14,8 @@
 		154E51642A1FD5C400789DB0 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E51632A1FD5C400789DB0 /* UsersViewController.swift */; };
 		154E51682A1FD6B900789DB0 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E51662A1FD6B900789DB0 /* UserTableViewCell.swift */; };
 		154E51692A1FD6B900789DB0 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 154E51672A1FD6B900789DB0 /* UserTableViewCell.xib */; };
+		154E516C2A24EF7A00789DB0 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 154E516B2A24EF7A00789DB0 /* MessageKit */; };
+		154E516F2A25009C00789DB0 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E516E2A25009C00789DB0 /* MessageListViewController.swift */; };
 		15D0FB122A11669B0072DFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB112A11669B0072DFCA /* AppDelegate.swift */; };
 		15D0FB142A11669B0072DFCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB132A11669B0072DFCA /* SceneDelegate.swift */; };
 		15D0FB192A11669B0072DFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D0FB172A11669B0072DFCA /* Main.storyboard */; };
@@ -39,6 +41,7 @@
 		154E51632A1FD5C400789DB0 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		154E51662A1FD6B900789DB0 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		154E51672A1FD6B900789DB0 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		154E516E2A25009C00789DB0 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		15D0FB0E2A11669B0072DFCA /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D0FB112A11669B0072DFCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D0FB132A11669B0072DFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B907927C47254A0903DD89AD /* Pods_Messenger.framework in Frameworks */,
+				154E516C2A24EF7A00789DB0 /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,14 @@
 				154E51672A1FD6B900789DB0 /* UserTableViewCell.xib */,
 			);
 			path = Users;
+			sourceTree = "<group>";
+		};
+		154E516D2A25004F00789DB0 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				154E516E2A25009C00789DB0 /* MessageListViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		15D0FB052A11669B0072DFCA = {
@@ -155,6 +167,7 @@
 		15D0FB2A2A127AE00072DFCA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				154E516D2A25004F00789DB0 /* Chat */,
 				154E51652A1FD65F00789DB0 /* Users */,
 				15D0FB302A1281A10072DFCA /* Slide */,
 			);
@@ -234,6 +247,9 @@
 			dependencies = (
 			);
 			name = Messenger;
+			packageProductDependencies = (
+				154E516B2A24EF7A00789DB0 /* MessageKit */,
+			);
 			productName = Messenger;
 			productReference = 15D0FB0E2A11669B0072DFCA /* Messenger.app */;
 			productType = "com.apple.product-type.application";
@@ -262,6 +278,9 @@
 				Base,
 			);
 			mainGroup = 15D0FB052A11669B0072DFCA;
+			packageReferences = (
+				154E516A2A24EF7A00789DB0 /* XCRemoteSwiftPackageReference "MessageKit" */,
+			);
 			productRefGroup = 15D0FB0F2A11669B0072DFCA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +363,7 @@
 				154E515A2A169EE900789DB0 /* CheckField.swift in Sources */,
 				154E515E2A16AB7900789DB0 /* Service.swift in Sources */,
 				15D0FB122A11669B0072DFCA /* AppDelegate.swift in Sources */,
+				154E516F2A25009C00789DB0 /* MessageListViewController.swift in Sources */,
 				15D0FB3E2A1334D60072DFCA /* AppViewController.swift in Sources */,
 				15D0FB3C2A1331680072DFCA /* AuthViewController.swift in Sources */,
 				15D0FB362A129A1B0072DFCA /* SlideModel.swift in Sources */,
@@ -574,6 +594,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		154E516A2A24EF7A00789DB0 /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		154E516B2A24EF7A00789DB0 /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 154E516A2A24EF7A00789DB0 /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 15D0FB062A11669B0072DFCA /* Project object */;
 }
