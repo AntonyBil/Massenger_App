@@ -24,7 +24,7 @@ class Service {
                     let email = data.email
                     let data: [String: Any] = ["email": email]
                     Firestore.firestore().collection("users").document(userId!).setData(data)
-                
+                    
                     completion(ResponceCode(code: 1))
                 }
             } else {
@@ -76,5 +76,45 @@ class Service {
                 completion(emailList)
             }
         }
+    }
+    
+    
+    
+    
+    //MARK: - Messanger
+    
+    func sendMessage(otherId: String?, conversationId: String?, message: Message, text: String, completion: @escaping(Bool)->()) {
+        if conversationId == nil {
+            // create new conversation
+        } else {
+            let msg: [String: Any] = [
+                "date": Date(),
+                "sender": message.sender.senderId,
+                "text": text
+            ]
+            Firestore.firestore().collection("conversations").document(conversationId!).collection("messages").addDocument(data: msg) { err in
+                if err == nil {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    func updateConversations() {
+        
+    }
+    
+    func getConversationID() {
+        
+    }
+    
+    func getAllMessages() {
+        
+    }
+    
+    func getOneMesage() {
+        
     }
 }
