@@ -17,6 +17,7 @@
 		154E516C2A24EF7A00789DB0 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 154E516B2A24EF7A00789DB0 /* MessageKit */; };
 		154E516F2A25009C00789DB0 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E516E2A25009C00789DB0 /* MessageListViewController.swift */; };
 		154E51712A25058B00789DB0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E51702A25058B00789DB0 /* ChatViewController.swift */; };
+		154E51732A27CE9600789DB0 /* CurentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E51722A27CE9600789DB0 /* CurentUser.swift */; };
 		15D0FB122A11669B0072DFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB112A11669B0072DFCA /* AppDelegate.swift */; };
 		15D0FB142A11669B0072DFCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0FB132A11669B0072DFCA /* SceneDelegate.swift */; };
 		15D0FB192A11669B0072DFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D0FB172A11669B0072DFCA /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		154E51672A1FD6B900789DB0 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		154E516E2A25009C00789DB0 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		154E51702A25058B00789DB0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		154E51722A27CE9600789DB0 /* CurentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurentUser.swift; sourceTree = "<group>"; };
 		15D0FB0E2A11669B0072DFCA /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D0FB112A11669B0072DFCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D0FB132A11669B0072DFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				154E515B2A16AB0A00789DB0 /* LoginModel.swift */,
 				154E515D2A16AB7900789DB0 /* Service.swift */,
 				154E515F2A17226000789DB0 /* ResponseCode.swift */,
+				154E51722A27CE9600789DB0 /* CurentUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				15D0FB332A1281E90072DFCA /* SlideCollectionViewCell.swift in Sources */,
 				15D0FB2E2A127C310072DFCA /* LoginViewController.swift in Sources */,
 				154E51602A17226000789DB0 /* ResponseCode.swift in Sources */,
+				154E51732A27CE9600789DB0 /* CurentUser.swift in Sources */,
 				154E51642A1FD5C400789DB0 /* UsersViewController.swift in Sources */,
 				154E51682A1FD6B900789DB0 /* UserTableViewCell.swift in Sources */,
 				15D0FB382A132EDF0072DFCA /* SliderSlides.swift in Sources */,

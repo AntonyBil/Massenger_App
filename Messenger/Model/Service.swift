@@ -62,18 +62,22 @@ class Service {
         
     }
     
-    func getAllUsers(completion: @escaping([String]) -> ()) {
-        Firestore.firestore().collection("users").getDocuments { snap, error in
+    func getAllUsers(completion: @escaping([CurentUser]) -> ()) {
+        
+        guard let email = Auth.auth().currentUser?.email else { return }
+        
+        var curentUsers = [CurentUser]()
+        Firestore.firestore().collection("users").whereField("email", isEqualTo: email).getDocuments { snap, error in
             if error == nil {
-                var emailList = [String]()
                 if let docs = snap?.documents {
                     for doc in docs {
                         let data = doc.data()
+                        let userId = doc.documentID
                         let email = data["email"] as! String
-                        emailList.append(email)
+                        curentUsers.append(CurentUser(id: userId, email: email))
                     }
                 }
-                completion(emailList)
+                completion(curentUsers)
             }
         }
     }
@@ -83,23 +87,27 @@ class Service {
     
     //MARK: - Messanger
     
-    func sendMessage(otherId: String?, conversationId: String?, message: Message, text: String, completion: @escaping(Bool)->()) {
-        if conversationId == nil {
-            // create new conversation
-        } else {
-            let msg: [String: Any] = [
-                "date": Date(),
-                "sender": message.sender.senderId,
-                "text": text
-            ]
-            Firestore.firestore().collection("conversations").document(conversationId!).collection("messages").addDocument(data: msg) { err in
-                if err == nil {
-                    completion(true)
-                } else {
-                    completion(false)
+    func sendMessage(otherId: String?, conversationId: String?, text: String, completion: @escaping(Bool)->()) {
+        if let uid = Auth.auth().currentUser?.uid {
+            if conversationId == nil {
+                // create new conversation
+            } else {
+                let msg: [String: Any] = [
+                    "date": Date(),
+                    "sender": uid,
+                    "text": text
+                ]
+                
+                Firestore.firestore().collection("conversations").document(conversationId!).collection("messages").addDocument(data: msg) { err in
+                    if err == nil {
+                        completion(true)
+                    } else {
+                        completion(false)
+                    }
                 }
             }
         }
+        
     }
     
     func updateConversations() {

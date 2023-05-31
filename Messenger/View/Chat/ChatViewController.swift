@@ -37,10 +37,6 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messages.append(Message(sender: selfSender, messageId: "1", sentDate: Date().addingTimeInterval(-11200), kind: .text("Hello")))
-        messages.append(Message(sender: otherSender, messageId: "2", sentDate: Date().addingTimeInterval(-10200), kind: .text("Hello! I'm fine)")))
-        messages.append(Message(sender: otherSender, messageId: "3", sentDate: Date().addingTimeInterval(-90200), kind: .text("And you?")))
-
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -69,9 +65,9 @@ extension ChatViewController: MessagesLayoutDelegate, MessagesDisplayDelegate, M
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let msg = Message(sender: selfSender, messageId: "4", sentDate: Date(), kind: .text(text))
+        let msg = Message(sender: selfSender, messageId: "", sentDate: Date(), kind: .text(text))
         messages.append(msg)
-        service.sendMessage(otherId: self.otherID, conversationId: self.chatID, message: msg, text: text) { [weak self] isSend in
+        service.sendMessage(otherId: self.otherID, conversationId: self.chatID, text: text) { [weak self] isSend in
             DispatchQueue.main.async {
                 inputBar.inputTextView.text = nil
                 self?.messagesCollectionView.reloadDataAndKeepOffset()
