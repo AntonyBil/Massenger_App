@@ -88,9 +88,68 @@ class Service {
     //MARK: - Messanger
     
     func sendMessage(otherId: String?, conversationId: String?, text: String, completion: @escaping(Bool)->()) {
+        
+        let ref = Firestore.firestore()
         if let uid = Auth.auth().currentUser?.uid {
             if conversationId == nil {
                 // create new conversation
+                let conversId = UUID().uuidString
+                
+                let selfData: [String: Any] = [
+                    "date": Date(),
+                    "otherId": otherId ?? ""
+                    ]
+                
+                let otherData: [String: Any] = [
+                    "date": Date(),
+                    "otherId": uid
+                ]
+                //у нас є переписка з людиною Х
+               ref.collection("users")
+                    .document(uid)
+                    .collection("conversations")
+                    .document(conversId)
+                    .setData(selfData)
+                
+                    //у людини Х є переписка з нами
+                ref.collection("users")
+                    .document(otherId ?? "")
+                    .collection("conversations")
+                    .document(conversId)
+                    .setData(otherData)
+                
+                let msg: [String: Any] = [
+                    "date": Date(),
+                    "sender": uid,
+                    "text": text
+                ]
+                
+                let convoInfo: [String: Any] = [
+                    "data": Date(),
+                    "selfSender": uid,
+                    "otherSender": otherId ?? ""
+                ]
+                
+                ref.collection("conversations")
+                    .document(conversationId ?? "")
+                    .setData(convoInfo) { err in
+                        if let err = err {
+                            print(err.localizedDescription)
+                            return
+                        }
+                        
+                        ref.collection("conversations")
+                            .document(conversationId ?? "")
+                            .collection("messages")
+                            .addDocument(data: msg) { err in
+                                if err == nil {
+                                    completion(true)
+                                } else {
+                                    completion(false)
+                                }
+                            }
+                    }
+                
             } else {
                 let msg: [String: Any] = [
                     "date": Date(),
@@ -98,7 +157,7 @@ class Service {
                     "text": text
                 ]
                 
-                Firestore.firestore().collection("conversations").document(conversationId!).collection("messages").addDocument(data: msg) { err in
+                ref.collection("conversations").document(conversationId!).collection("messages").addDocument(data: msg) { err in
                     if err == nil {
                         completion(true)
                     } else {

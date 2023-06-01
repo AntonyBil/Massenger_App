@@ -42,6 +42,8 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
         showMessageTimestampOnSwipeLeft = true
+        
+        //якщо chatID = nil зробити пошук
     }
     
 
