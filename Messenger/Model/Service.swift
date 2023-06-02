@@ -173,8 +173,26 @@ class Service {
         
     }
     
-    func getConversationID() {
-        
+    func getConversationID(otherId: String, completion: @escaping(String)-> ()) {
+        if let uid = Auth.auth().currentUser?.uid {
+            let ref = Firestore.firestore()
+            
+            ref.collection("users")
+                .document(uid)
+                .collection("conversations")
+                .whereField("otherId", isEqualTo: otherId)
+                .getDocuments { snap, err in
+                    if err != err {
+                        return
+                    }
+                    if let snap = snap, !snap.documents.isEmpty {
+                        let doc = snap.documents.first
+                        if let convoId = doc?.documentID{
+                            completion(convoId)
+                        }
+                    }
+                }
+        }
     }
     
     func getAllMessages() {

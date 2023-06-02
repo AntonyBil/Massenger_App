@@ -43,7 +43,11 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         showMessageTimestampOnSwipeLeft = true
         
-        //якщо chatID = nil зробити пошук
+        if chatID == nil {
+            service.getConversationID(otherId: otherID!) { [weak self] chatID in
+                self?.chatID = chatID
+            }
+        }
     }
     
 
