@@ -87,7 +87,7 @@ class Service {
     
     //MARK: - Messanger
     
-    func sendMessage(otherId: String?, conversationId: String?, text: String, completion: @escaping(Bool)->()) {
+    func sendMessage(otherId: String?, conversationId: String?, text: String, completion: @escaping(String)->()) {
         
         let ref = Firestore.firestore()
         if let uid = Auth.auth().currentUser?.uid {
@@ -143,9 +143,7 @@ class Service {
                             .collection("messages")
                             .addDocument(data: msg) { err in
                                 if err == nil {
-                                    completion(true)
-                                } else {
-                                    completion(false)
+                                    completion(conversId)
                                 }
                             }
                     }
@@ -159,9 +157,7 @@ class Service {
                 
                 ref.collection("conversations").document(conversationId!).collection("messages").addDocument(data: msg) { err in
                     if err == nil {
-                        completion(true)
-                    } else {
-                        completion(false)
+                        completion(conversationId ?? "")
                     }
                 }
             }
@@ -182,7 +178,7 @@ class Service {
                 .collection("conversations")
                 .whereField("otherId", isEqualTo: otherId)
                 .getDocuments { snap, err in
-                    if err != err {
+                    if err != nil {
                         return
                     }
                     if let snap = snap, !snap.documents.isEmpty {
@@ -195,8 +191,46 @@ class Service {
         }
     }
     
-    func getAllMessages() {
-        
+    func getAllMessages(chatId: String, completion: @escaping ([Message]) -> ()) {
+        if let uid = Auth.auth().currentUser?.uid {
+          
+            let ref = Firestore.firestore()
+            ref.collection("conversations")
+                .document(chatId)
+                .collection("massages")
+                .limit(to: 50)
+                .order(by: "date", descending: true)
+                .addSnapshotListener { snap, err in
+                    if err != nil {
+                        return
+                    }
+                    
+                    if let snap = snap, !snap.documents.isEmpty {
+                        var msgs = [Message]()
+                        var sender = Sender(senderId: uid, displayName: "Me")
+                        for doc in snap.documents {
+                            let data = doc.data()
+                            let userId = data["sender"] as! String
+                            
+                            let messageId = doc.documentID
+                            
+                            let date = data["date"] as! Timestamp
+                            let sentDate = date.dateValue()
+                            let text = data["text"] as! String
+                            if userId == uid {
+                                sender = Sender(senderId: "1", displayName: "")
+                            } else {
+                                sender = Sender(senderId: "2", displayName: "")
+                            }
+                            
+                            
+                            msgs.append(Message(sender: sender, messageId: messageId, sentDate: sentDate, kind: .text(text)))
+                        }
+                        
+                        completion(msgs)
+                    }
+                }
+        }
     }
     
     func getOneMesage() {
